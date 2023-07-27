@@ -9,6 +9,16 @@ class Image(models.Model):
 
 
 class Product(models.Model):
+
+    class Condition:
+        new = 'new'
+        used = 'used'
+
+    CONDITION_CHOICES = (
+        (Condition.new, "new"),
+        (Condition.used, "used")
+    )
+
     product_name = models.CharField(max_length=300, unique=True)
     product_description = models.TextField()
     SKU = models.CharField(max_length=30, unique=True)
@@ -19,6 +29,8 @@ class Product(models.Model):
     additional_images = models.ManyToManyField('Image', blank=True)
     average_rating = models.DecimalField(max_digits=3, decimal_places=2, default=0.00)
     total_reviews = models.PositiveIntegerField(default=0)
+    condition = models.CharField(max_length=5, choices=CONDITION_CHOICES, blank=True, null=True)
+    warranty = models.IntegerField(blank=True, null=True, default=0)
 
     def __str__(self):
         return self.product_name
@@ -39,3 +51,6 @@ class Rating(models.Model):
 
     def __str__(self):
         return f"Rating for {self.product.product_name}"
+
+
+
