@@ -41,9 +41,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'drf_yasg',
-    'products.laptops',
     'products.product',
     'products.components_of_device',
+    'products.laptops',
+    "products.computers"
 ]
 
 MIDDLEWARE = [
