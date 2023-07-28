@@ -10,7 +10,7 @@ class LaptopListSerializer(ProductListSerializer):
         model = Laptop
 
 
-class LaptopRetrivSerializer(ProductListSerializer):
+class LaptopRetrivSerializer(serializers.ModelSerializer):
     additional_images = serializers.SerializerMethodField()
     display = display_serializer
     battery = battery_serializer
@@ -21,7 +21,7 @@ class LaptopRetrivSerializer(ProductListSerializer):
     ports_and_connectivity = ports_and_connectivity_serializer
     chassis = chassis_serializer
 
-    class Meta(ProductListSerializer.Meta):
+    class Meta:
         model = Laptop
         fields = ProductListSerializer.Meta.fields + [
             "product_description", "SKU", "additional_images", "condition", "warranty",

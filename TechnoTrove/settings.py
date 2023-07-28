@@ -44,7 +44,8 @@ INSTALLED_APPS = [
     'products.product',
     'products.components_of_device',
     'products.laptops',
-    "products.computers"
+    "products.computers",
+    "products.monitors",
 ]
 
 MIDDLEWARE = [
