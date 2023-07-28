@@ -1,7 +1,20 @@
 from rest_framework import serializers
-from .models import Display, Battery, Processor, Memory, Graphics, Keyboard, PortsAndConnectivity, Chassis
-
-
+from .models import (
+    Display,
+    Battery,
+    Processor,
+    Memory,
+    Graphics,
+    Keyboard,
+    PortsAndConnectivity,
+    Chassis,
+    MonitorKeySpecification,
+    MonitorFeatures,
+    MonitorDisplay,
+    MonitorPhysical,
+    MonitorErgonomics,
+    MonitorPorts
+)
 MODELS_AND_SERIALIZERS = {
     Display: "DisplaySerializer",
     Battery: "BatterySerializer",
@@ -11,6 +24,12 @@ MODELS_AND_SERIALIZERS = {
     Keyboard: "KeyboardSerializer",
     PortsAndConnectivity: "PortsAndConnectivitySerializer",
     Chassis: "ChassisSerializer",
+    MonitorKeySpecification: "MonitorKeySpecificationSerializer",
+    MonitorFeatures: "MonitorFeaturesSerializer",
+    MonitorDisplay: "MonitorDisplaySerializer",
+    MonitorPhysical: "MonitorPhysicalSerializer",
+    MonitorErgonomics: "MonitorErgonomicsSerializer",
+    MonitorPorts: "MonitorPortsSerializer"
 }
 
 
@@ -37,3 +56,9 @@ graphics_serializer = GraphicsSerializer()
 keyboard_serializer = KeyboardSerializer()
 ports_and_connectivity_serializer = PortsAndConnectivitySerializer()
 chassis_serializer = ChassisSerializer()
+monitor_key_specification_serializer = MonitorKeySpecificationSerializer()
+monitor_features_serializer = MonitorFeaturesSerializer()
+monitor_display_serializer = MonitorDisplaySerializer()
+monitor_physical_serializer = MonitorPhysicalSerializer()
+monitor_ergonomics_serializer = MonitorErgonomicsSerializer()
+monitors_ports_serializer = MonitorPortsSerializer()

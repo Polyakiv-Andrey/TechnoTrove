@@ -79,3 +79,67 @@ class Chassis(models.Model):
 
     def __str__(self):
         return f"chassis id: {self.id}"
+
+
+class MonitorKeySpecification(models.Model):
+    screen_size = models.DecimalField(max_digits=6, decimal_places=2, blank=True, null=True)
+    maximum_resolution = models.CharField(max_length=20, blank=True, null=True)
+    hdmi_type = models.CharField(max_length=20, blank=True, null=True)
+    aspect_ratio = models.CharField(max_length=20, blank=True, null=True)
+    panel_type = models.CharField(max_length=40, blank=True, null=True)
+    refresh_rate = models.IntegerField(blank=True, null=True)
+    response_time = models.IntegerField(blank=True, null=True)
+
+    def __str__(self):
+        return f"key specification id: {self.id} "
+
+
+class MonitorFeatures(models.Model):
+    free_sync = models.BooleanField(default=False, blank=True, null=True)
+    hdr = models.BooleanField(default=False, blank=True, null=True)
+    speakers = models.BooleanField(default=False, blank=True, null=True)
+    console_compatibility = models.CharField(max_length=100, blank=True, null=True)
+
+    def __str__(self):
+        return f"feature id: {self.id}"
+
+
+class MonitorDisplay(Display):
+    aspect_ratio = models.CharField(max_length=30, blank=True, null=True)
+    panel_type = models.CharField(max_length=60, blank=True, null=True)
+    display_type = models.CharField(max_length=70, blank=True, null=True)
+    vertical_viewing_angle = models.IntegerField(blank=True, null=True)
+    horizontal_viewing_angle = models.IntegerField(blank=True, null=True)
+    TFT_technology = models.CharField(max_length=50, null=True, blank=True)
+    image_contrast_ratio = models.CharField(max_length=30, null=True, blank=True)
+
+    def __str__(self):
+        return f"monitor display id: {self.id}"
+
+
+class MonitorPhysical(Chassis):
+    wall_mounting = models.CharField(max_length=30, blank=True, null=True)
+
+    def __str__(self):
+        return f"physical id: {self.id}"
+
+
+class MonitorErgonomics(models.Model):
+    height_adjustment = models.BooleanField(default=False, blank=True, null=True)
+    tilt = models.BooleanField(default=False, blank=True, null=True)
+    pivot = models.BooleanField(default=False, blank=True, null=True)
+
+    def __str__(self):
+        return f"ergonomics id: {self.id}"
+
+
+class MonitorPorts(PortsAndConnectivity):
+    display_port = models.IntegerField(default=0, blank=True, null=True)
+    mini_display_port = models.IntegerField(default=0, blank=True, null=True)
+    HDMI_type = models.CharField(max_length=30, blank=True, null=True)
+    VGA = models.IntegerField(default=0, blank=True, null=True)
+    DVI = models.IntegerField(default=0, blank=True, null=True)
+
+    def __str__(self):
+        return f"ports id: {self.id}"
+
