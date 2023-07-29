@@ -1,26 +1,7 @@
 from rest_framework import serializers
-from .models import (
-    Display,
-    Battery,
-    Processor,
-    Memory,
-    Graphics,
-    Keyboard,
-    PortsAndConnectivity,
-    Chassis,
-    MonitorKeySpecification,
-    MonitorFeatures,
-    MonitorDisplay,
-    MonitorPhysical,
-    MonitorErgonomics,
-    MonitorPorts,
-    TabletsOverview,
-    TabletsKeySpec,
-    TabletsPortsAndConnectivity,
-    TabletsDimensions,
-    TabletsBattery,
-    TabletCamera
-)
+from .models import *
+
+
 MODELS_AND_SERIALIZERS = {
     Display: "DisplaySerializer",
     Battery: "BatterySerializer",
@@ -41,7 +22,15 @@ MODELS_AND_SERIALIZERS = {
     TabletsKeySpec: "TabletsKeySpecSerializer",
     TabletsDimensions: "TabletsDimensionsSerializer",
     TabletsBattery: "TabletsBatterySerializer",
-    TabletCamera: "TabletCameraSerializer"
+    TabletCamera: "TabletCameraSerializer",
+    PhoneOverview: "PhoneOverviewSerializer",
+    PhoneDisplay: "PhoneDisplaySerializer",
+    PhoneCamera: "PhoneCameraSerializer",
+    PhoneDimensions: "PhoneDimensionsSerializer",
+    PhoneStorage: "PhoneStorageSSerializer",
+    PhoneConnectivity: "PhoneConnectivitySerializer",
+    PhonePower: "PhonePowerSerializer",
+    PhoneTechnicalSpecifications: "PhoneTechnicalSpecificationsSerializer",
 }
 
 
@@ -80,3 +69,11 @@ tablet_key_spec_serializer = TabletsKeySpecSerializer()
 tablet_dimensions_serializer = TabletsDimensionsSerializer()
 tablet_battery_serializer = TabletsBatterySerializer()
 tablet_camera_serializer = TabletCameraSerializer()
+phone_overview_serializer = PhoneOverviewSerializer()
+phone_display_serializer = PhoneDisplaySerializer()
+phone_camera_serializer = PhoneCameraSerializer()
+phone_dimensions_serializer = PhoneDimensionsSerializer()
+phone_storage_serializer = PhoneStorageSSerializer()
+phone_connectivity_serializer = PhoneConnectivitySerializer
+phone_power_serializer = PhonePowerSerializer()
+phone_technical_specifications_serializer = PhoneTechnicalSpecificationsSerializer()

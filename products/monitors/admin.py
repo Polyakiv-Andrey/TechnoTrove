@@ -1,3 +1,5 @@
 from django.contrib import admin
 
-# Register your models here.
+from products.monitors.models import Monitor
+
+admin.site.register(Monitor)

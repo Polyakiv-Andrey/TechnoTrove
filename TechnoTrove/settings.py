@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     "products.computers",
     "products.monitors",
     "products.tablets",
+    "products.phones",
 ]
 
 MIDDLEWARE = [
