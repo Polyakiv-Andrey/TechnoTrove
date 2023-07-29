@@ -3,14 +3,19 @@ from .models import *
 
 
 MODELS_AND_SERIALIZERS = {
-    Display: "DisplaySerializer",
-    Battery: "BatterySerializer",
-    Processor: "ProcessorSerializer",
-    Memory: "MemorySerializer",
-    Graphics: "GraphicsSerializer",
-    Keyboard: "KeyboardSerializer",
-    PortsAndConnectivity: "PortsAndConnectivitySerializer",
-    Chassis: "ChassisSerializer",
+    LaptopDisplay: "LaptopDisplaySerializer",
+    LaptopBattery: "LaptopBatterySerializer",
+    LaptopProcessor: "LaptopProcessorSerializer",
+    LaptopMemory: "LaptopMemorySerializer",
+    LaptopGraphics: "LaptopGraphicsSerializer",
+    LaptopKeyboard: "LaptopKeyboardSerializer",
+    LaptopPortsAndConnectivity: "LaptopPortsAndConnectivitySerializer",
+    LaptopChassis: "LaptopChassisSerializer",
+    ComputerProcessor: "ComputerProcessorSerializer",
+    ComputerMemory: "ComputerMemorySerializer",
+    ComputerGraphics: "ComputerGraphicsSerializer",
+    ComputerPortsAndConnectivity: "ComputerPortsAndConnectivitySerializer",
+    ComputerChassis: "ComputerChassisSerializer",
     MonitorKeySpecification: "MonitorKeySpecificationSerializer",
     MonitorFeatures: "MonitorFeaturesSerializer",
     MonitorDisplay: "MonitorDisplaySerializer",
@@ -49,14 +54,19 @@ for model, serializer_name in MODELS_AND_SERIALIZERS.items():
     )
     locals()[serializer_name] = serializer_class
 
-display_serializer = DisplaySerializer()
-battery_serializer = BatterySerializer()
-processor_serializer = ProcessorSerializer()
-memory_serializer = MemorySerializer()
-graphics_serializer = GraphicsSerializer()
-keyboard_serializer = KeyboardSerializer()
-ports_and_connectivity_serializer = PortsAndConnectivitySerializer()
-chassis_serializer = ChassisSerializer()
+laptop_display_serializer = LaptopDisplaySerializer()
+laptop_battery_serializer = LaptopBatterySerializer()
+laptop_processor_serializer = LaptopProcessorSerializer()
+laptop_memory_serializer = LaptopMemorySerializer()
+laptop_graphics_serializer = LaptopGraphicsSerializer()
+laptop_keyboard_serializer = LaptopKeyboardSerializer()
+laptop_ports_and_connectivity_serializer = LaptopPortsAndConnectivitySerializer()
+laptop_chassis_serializer = LaptopChassisSerializer()
+computer_processor_serializer = ComputerProcessorSerializer()
+computer_memory_serializer = ComputerMemorySerializer()
+computer_graphics_serializer = ComputerGraphicsSerializer()
+computer_ports_serializer = ComputerPortsAndConnectivitySerializer()
+computer_chassis_serializer = ComputerChassisSerializer()
 monitor_key_specification_serializer = MonitorKeySpecificationSerializer()
 monitor_features_serializer = MonitorFeaturesSerializer()
 monitor_display_serializer = MonitorDisplaySerializer()

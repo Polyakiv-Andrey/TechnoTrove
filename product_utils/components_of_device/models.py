@@ -1,7 +1,7 @@
 from django.db import models
 
 
-class Display(models.Model):
+class LaptopDisplay(models.Model):
     screen_size = models.CharField(max_length=30, blank=True, null=True)
     resolution = models.CharField(max_length=30, blank=True, null=True)
     refresh_rate = models.IntegerField(blank=True, null=True)
@@ -9,18 +9,18 @@ class Display(models.Model):
     brightness = models.CharField(max_length=30, blank=True, null=True)
 
     def __str__(self):
-        return f"display id: {self.id}"
+        return f"Laptop display id: {self.id}"
 
 
-class Battery(models.Model):
+class LaptopBattery(models.Model):
     run_time = models.IntegerField(blank=True, null=True)
     technology = models.CharField(max_length=100, blank=True, null=True)
 
     def __str__(self):
-        return f"battery id: {self.id}"
+        return f"Laptop battery id: {self.id}"
 
 
-class Processor(models.Model):
+class LaptopProcessor(models.Model):
     manufacturer = models.CharField(max_length=30, blank=True, null=True)
     series = models.CharField(max_length=100, blank=True, null=True)
     number = models.CharField(max_length=20, blank=True, null=True)
@@ -29,28 +29,28 @@ class Processor(models.Model):
     boost_frequency = models.DecimalField(max_digits=5, decimal_places=1, blank=True, null=True)
 
     def __str__(self):
-        return f"processor id: {self.id}"
+        return f"Laptop processor id: {self.id}"
 
 
-class Memory(models.Model):
+class LaptopMemory(models.Model):
     installed_size = models.IntegerField(blank=True, null=True)
     speed = models.IntegerField(blank=True, null=True)
 
     def __str__(self):
-        return f"memory id: {self.id}"
+        return f"Laptop memory id: {self.id}"
 
 
-class Graphics(models.Model):
+class LaptopGraphics(models.Model):
     graphics_type = models.CharField(max_length=50, blank=True, null=True)
     graphics_manufacturer = models.CharField(max_length=100, blank=True, null=True)
     graphics_card = models.CharField(max_length=100, blank=True, null=True)
     integrated_graphics = models.CharField(max_length=100, blank=True, null=True)
 
     def __str__(self):
-        return f"graphics id: {self.id}"
+        return f"Laptop graphics id: {self.id}"
 
 
-class Keyboard(models.Model):
+class LaptopKeyboard(models.Model):
     backlit_keyboard = models.BooleanField(default=False, blank=True, null=True)
     numeric_keyboard = models.BooleanField(default=False, blank=True, null=True)
 
@@ -58,17 +58,17 @@ class Keyboard(models.Model):
         return f"keyboard id: {self.id}"
 
 
-class PortsAndConnectivity(models.Model):
+class LaptopPortsAndConnectivity(models.Model):
     usb_3_0 = models.IntegerField(default=0, blank=True, null=True)
     usb_c = models.IntegerField(default=0, blank=True, null=True)
     hdmi = models.IntegerField(default=0, blank=True, null=True)
     wifi = models.CharField(max_length=30, blank=True, null=True)
 
     def __str__(self):
-        return f"ports and connectivity id: {self.id}"
+        return f"Laptop ports and connectivity id: {self.id}"
 
 
-class Chassis(models.Model):
+class LaptopChassis(models.Model):
     height = models.DecimalField(max_digits=7, decimal_places=2, blank=True, null=True)
     width = models.DecimalField(max_digits=7, decimal_places=2, blank=True, null=True)
     depth = models.DecimalField(max_digits=7, decimal_places=2, blank=True, null=True)
@@ -78,7 +78,65 @@ class Chassis(models.Model):
     webcam = models.BooleanField(default=False, blank=True, null=True)
 
     def __str__(self):
-        return f"chassis id: {self.id}"
+        return f"Laptop chassis id: {self.id}"
+
+
+class ComputerProcessor(models.Model):
+    manufacturer = models.CharField(max_length=30, blank=True, null=True)
+    series = models.CharField(max_length=100, blank=True, null=True)
+    number = models.CharField(max_length=20, blank=True, null=True)
+    generation = models.CharField(max_length=20, blank=True, null=True)
+    cores = models.IntegerField(blank=True, null=True)
+    cache_size = models.IntegerField(blank=True, null=True)
+    clock_speed = models.DecimalField(max_digits=5, decimal_places=1, blank=True, null=True)
+
+    def __str__(self):
+        return f"Computer processor id: {self.id}"
+
+
+class ComputerMemory(models.Model):
+    installed_size = models.IntegerField(blank=True, null=True)
+    speed = models.IntegerField(blank=True, null=True)
+    memory_type = models.CharField(max_length=20, blank=True, null=True)
+    form_factor = models.CharField(max_length=20, blank=True, null=True)
+    total_slots = models.IntegerField(blank=True, null=True)
+    maximum_capacity = models.IntegerField(blank=True, null=True)
+
+    def __str__(self):
+        return f"Computer memory id: {self.id}"
+
+
+class ComputerGraphics(models.Model):
+    graphics_type = models.CharField(max_length=50, blank=True, null=True)
+    graphics_manufacturer = models.CharField(max_length=100, blank=True, null=True)
+    graphics_card = models.CharField(max_length=100, blank=True, null=True)
+
+    def __str__(self):
+        return f"Computer graphics id: {self.id}"
+
+
+class ComputerPortsAndConnectivity(models.Model):
+    usb_2_0 = models.IntegerField(default=0, blank=True, null=True)
+    usb_3_0 = models.IntegerField(default=0, blank=True, null=True)
+    hdmi = models.IntegerField(default=0, blank=True, null=True)
+    display_port = models.IntegerField(default=0, blank=True, null=True)
+    dvi = models.IntegerField(default=0, blank=True, null=True)
+    vga = models.IntegerField(default=0, blank=True, null=True)
+
+    def __str__(self):
+        return f"Computer ports id: {self.id}"
+
+
+class ComputerChassis(models.Model):
+    height = models.DecimalField(max_digits=7, decimal_places=2, blank=True, null=True)
+    width = models.DecimalField(max_digits=7, decimal_places=2, blank=True, null=True)
+    depth = models.DecimalField(max_digits=7, decimal_places=2, blank=True, null=True)
+    weight = models.DecimalField(max_digits=7, decimal_places=2, blank=True, null=True)
+    color = models.CharField(max_length=50, blank=True, null=True)
+    form_factor = models.CharField(max_length=50, blank=True, null=True)
+
+    def __str__(self):
+        return f"Computer chassis id: {self.id}"
 
 
 class MonitorKeySpecification(models.Model):
@@ -91,7 +149,7 @@ class MonitorKeySpecification(models.Model):
     response_time = models.IntegerField(blank=True, null=True)
 
     def __str__(self):
-        return f"key specification id: {self.id} "
+        return f"Monitor key specification id: {self.id} "
 
 
 class MonitorFeatures(models.Model):
@@ -104,7 +162,12 @@ class MonitorFeatures(models.Model):
         return f"feature id: {self.id}"
 
 
-class MonitorDisplay(Display):
+class MonitorDisplay(models.Model):
+    screen_size = models.CharField(max_length=30, blank=True, null=True)
+    resolution = models.CharField(max_length=30, blank=True, null=True)
+    refresh_rate = models.IntegerField(blank=True, null=True)
+    screen_type = models.CharField(max_length=30, blank=True, null=True)
+    brightness = models.CharField(max_length=30, blank=True, null=True)
     aspect_ratio = models.CharField(max_length=30, blank=True, null=True)
     panel_type = models.CharField(max_length=60, blank=True, null=True)
     display_type = models.CharField(max_length=70, blank=True, null=True)
@@ -117,7 +180,10 @@ class MonitorDisplay(Display):
         return f"monitor display id: {self.id}"
 
 
-class MonitorPhysical(Chassis):
+class MonitorPhysical(models.Model):
+    height = models.DecimalField(max_digits=7, decimal_places=2, blank=True, null=True)
+    width = models.DecimalField(max_digits=7, decimal_places=2, blank=True, null=True)
+    depth = models.DecimalField(max_digits=7, decimal_places=2, blank=True, null=True)
     wall_mounting = models.CharField(max_length=30, blank=True, null=True)
 
     def __str__(self):
@@ -133,7 +199,10 @@ class MonitorErgonomics(models.Model):
         return f"ergonomics id: {self.id}"
 
 
-class MonitorPorts(PortsAndConnectivity):
+class MonitorPorts(models.Model):
+    usb_3_0 = models.IntegerField(default=0, blank=True, null=True)
+    usb_c = models.IntegerField(default=0, blank=True, null=True)
+    hdmi = models.IntegerField(default=0, blank=True, null=True)
     display_port = models.IntegerField(default=0, blank=True, null=True)
     mini_display_port = models.IntegerField(default=0, blank=True, null=True)
     HDMI_type = models.CharField(max_length=30, blank=True, null=True)
@@ -196,7 +265,10 @@ class TabletCamera(models.Model):
         return f"Tablet camera id: {self.id}"
 
 
-class PhoneOverview(TabletsOverview):
+class PhoneOverview(models.Model):
+    brand = models.CharField(max_length=80, blank=True, null=True)
+    model = models.CharField(max_length=150, blank=True, null=True)
+    colour = models.CharField(max_length=40, blank=True, null=True)
     network = models.CharField(max_length=80, blank=True, null=True)
     phone_agreement = models.CharField(max_length=80, blank=True, null=True)
 
