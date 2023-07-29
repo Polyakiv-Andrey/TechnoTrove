@@ -143,3 +143,54 @@ class MonitorPorts(PortsAndConnectivity):
     def __str__(self):
         return f"ports id: {self.id}"
 
+
+class TabletsOverview(models.Model):
+    brand = models.CharField(max_length=80, blank=True, null=True)
+    model = models.CharField(max_length=150, blank=True, null=True)
+    colour = models.CharField(max_length=40, blank=True, null=True)
+
+    def __str__(self):
+        return f"Tablets overview id: {self.id}"
+
+
+class TabletsPortsAndConnectivity(models.Model):
+    connectivity = models.CharField(max_length=80, blank=True, null=True)
+    bluetooth = models.CharField(max_length=80, blank=True, null=True)
+    card_reader = models.CharField(max_length=80, blank=True, null=True)
+
+    def __str__(self):
+        return f"Tablets ports id: {self.id}"
+
+
+class TabletsKeySpec(models.Model):
+    storage = models.IntegerField(blank=True, null=True)
+    operating_system = models.CharField(max_length=80, blank=True, null=True)
+    processor_clock_speed = models.IntegerField(blank=True, null=True)
+    RAM = models.IntegerField(blank=True, null=True)
+    resolution = models.CharField(max_length=80, blank=True, null=True)
+
+    def __str__(self):
+        return f"Tablets key spec id: {self.id}"
+
+
+class TabletsDimensions(models.Model):
+    screen_size = models.DecimalField(max_digits=5, decimal_places=1, blank=True, null=True)
+    tablet_size = models.DecimalField(max_digits=5, decimal_places=1, blank=True, null=True)
+
+    def __str__(self):
+        return f"Tablets dimensions id: {self.id}"
+
+
+class TabletsBattery(models.Model):
+    runtime = models.IntegerField(blank=True, null=True)
+
+    def __str__(self):
+        return f"Tablets runtime id: {self.id}"
+
+
+class TabletCamera(models.Model):
+    front_camera = models.IntegerField(blank=True, null=True)
+    back_camera = models.IntegerField(blank=True, null=True)
+
+    def __str__(self):
+        return f"Tablets camera id: {self.id}"

@@ -54,3 +54,4 @@ class Monitor(Product):
         blank=True,
         null=True
     )
+
