@@ -43,5 +43,5 @@ urlpatterns = [
     path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
     re_path(r'^static/(?P<path>.*)$', serve,    {'document_root': settings.STATIC_ROOT}),
     re_path(r'^media/(?P<path>.*)$', serve,    {'document_root': settings.MEDIA_ROOT}),
-    path('products/', include('products.product.urls', namespace="product")),
+    path('products/', include('product_utils.product.urls', namespace="product")),
 ]

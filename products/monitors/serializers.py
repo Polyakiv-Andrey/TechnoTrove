@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from products.components_of_device.serializers import (
+from product_utils.components_of_device.serializers import (
     monitor_key_specification_serializer,
     monitor_features_serializer,
     monitor_display_serializer,
@@ -9,8 +9,8 @@ from products.components_of_device.serializers import (
     monitors_ports_serializer
 )
 from products.monitors.models import Monitor
-from products.product.models import Image
-from products.product.serializers import ProductListSerializer
+from product_utils.product.models import Image
+from product_utils.product.serializers import ProductListSerializer
 
 
 class MonitorListSerializer(ProductListSerializer):

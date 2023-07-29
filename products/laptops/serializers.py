@@ -1,7 +1,18 @@
-from products.components_of_device.serializers import *
+from rest_framework import serializers
+
+from product_utils.components_of_device.serializers import (
+    display_serializer,
+    battery_serializer,
+    processor_serializer,
+    memory_serializer,
+    graphics_serializer,
+    keyboard_serializer,
+    ports_and_connectivity_serializer,
+    chassis_serializer
+)
 from products.laptops.models import Laptop
-from products.product.models import Image
-from products.product.serializers import ProductListSerializer
+from product_utils.product.models import Image
+from product_utils.product.serializers import ProductListSerializer
 
 
 class LaptopListSerializer(ProductListSerializer):

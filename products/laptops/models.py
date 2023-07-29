@@ -1,6 +1,6 @@
 from django.db import models
 
-from products.components_of_device.models import (
+from product_utils.components_of_device.models import (
     Display,
     Battery,
     Processor,
@@ -10,7 +10,7 @@ from products.components_of_device.models import (
     PortsAndConnectivity,
     Chassis
 )
-from products.product.models import Product
+from product_utils.product.models import Product
 
 
 class Laptop(Product):

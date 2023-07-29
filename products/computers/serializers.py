@@ -1,6 +1,6 @@
 from products.computers.models import Computer
 from products.laptops.serializers import LaptopRetrivSerializer
-from products.product.serializers import ProductListSerializer
+from product_utils.product.serializers import ProductListSerializer
 
 
 class ComputerListSerializer(ProductListSerializer):

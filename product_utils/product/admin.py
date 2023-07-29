@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from products.product.models import Image
+from product_utils.product.models import Image
 
 
 admin.site.register(Image)
