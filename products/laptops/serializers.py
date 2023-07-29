@@ -1,5 +1,3 @@
-from rest_framework import serializers
-
 from product_utils.components_of_device.serializers import (
     display_serializer,
     battery_serializer,
@@ -11,8 +9,7 @@ from product_utils.components_of_device.serializers import (
     chassis_serializer
 )
 from products.laptops.models import Laptop
-from product_utils.product.models import Image
-from product_utils.product.serializers import ProductListSerializer
+from product_utils.product.serializers import ProductListSerializer, ProductRetrivSerializer
 
 
 class LaptopListSerializer(ProductListSerializer):
@@ -21,8 +18,7 @@ class LaptopListSerializer(ProductListSerializer):
         model = Laptop
 
 
-class LaptopRetrivSerializer(serializers.ModelSerializer):
-    additional_images = serializers.SerializerMethodField()
+class LaptopRetrivSerializer(ProductRetrivSerializer):
     display = display_serializer
     battery = battery_serializer
     processor = processor_serializer
@@ -34,13 +30,7 @@ class LaptopRetrivSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Laptop
-        fields = ProductListSerializer.Meta.fields + [
-            "product_description", "SKU", "additional_images", "condition", "warranty",
+        fields = ProductRetrivSerializer.Meta.fields + [
             "display", "battery", "processor", "memory", "ssd_capacity", "graphics",
             "keyboard", "ports_and_connectivity", "chassis", "operating_system"
         ]
-
-    def get_additional_images(self, laptop):
-        image_ids = laptop.additional_images.values_list('id', flat=True)
-        images = Image.objects.filter(id__in=image_ids)
-        return [image.image.url for image in images]

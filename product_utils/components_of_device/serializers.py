@@ -13,7 +13,13 @@ from .models import (
     MonitorDisplay,
     MonitorPhysical,
     MonitorErgonomics,
-    MonitorPorts
+    MonitorPorts,
+    TabletsOverview,
+    TabletsKeySpec,
+    TabletsPortsAndConnectivity,
+    TabletsDimensions,
+    TabletsBattery,
+    TabletCamera
 )
 MODELS_AND_SERIALIZERS = {
     Display: "DisplaySerializer",
@@ -29,7 +35,13 @@ MODELS_AND_SERIALIZERS = {
     MonitorDisplay: "MonitorDisplaySerializer",
     MonitorPhysical: "MonitorPhysicalSerializer",
     MonitorErgonomics: "MonitorErgonomicsSerializer",
-    MonitorPorts: "MonitorPortsSerializer"
+    MonitorPorts: "MonitorPortsSerializer",
+    TabletsOverview: "TabletsOverviewSerializer",
+    TabletsPortsAndConnectivity: "TabletsPortsAndConnectivitySerializer",
+    TabletsKeySpec: "TabletsKeySpecSerializer",
+    TabletsDimensions: "TabletsDimensionsSerializer",
+    TabletsBattery: "TabletsBatterySerializer",
+    TabletCamera: "TabletCameraSerializer"
 }
 
 
@@ -62,3 +74,9 @@ monitor_display_serializer = MonitorDisplaySerializer()
 monitor_physical_serializer = MonitorPhysicalSerializer()
 monitor_ergonomics_serializer = MonitorErgonomicsSerializer()
 monitors_ports_serializer = MonitorPortsSerializer()
+tablet_overview = TabletsOverviewSerializer()
+tablet_ports_serializer = TabletsPortsAndConnectivitySerializer()
+tablet_key_spec_serializer = TabletsKeySpecSerializer()
+tablet_dimensions_serializer = TabletsDimensionsSerializer()
+tablet_battery_serializer = TabletsBatterySerializer()
+tablet_camera_serializer = TabletCameraSerializer()
