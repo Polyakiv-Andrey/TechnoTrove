@@ -150,7 +150,7 @@ class TabletsOverview(models.Model):
     colour = models.CharField(max_length=40, blank=True, null=True)
 
     def __str__(self):
-        return f"Tablets overview id: {self.id}"
+        return f"Tablet overview id: {self.id}"
 
 
 class TabletsPortsAndConnectivity(models.Model):
@@ -159,7 +159,7 @@ class TabletsPortsAndConnectivity(models.Model):
     card_reader = models.CharField(max_length=80, blank=True, null=True)
 
     def __str__(self):
-        return f"Tablets ports id: {self.id}"
+        return f"Tablet ports id: {self.id}"
 
 
 class TabletsKeySpec(models.Model):
@@ -170,7 +170,7 @@ class TabletsKeySpec(models.Model):
     resolution = models.CharField(max_length=80, blank=True, null=True)
 
     def __str__(self):
-        return f"Tablets key spec id: {self.id}"
+        return f"Tablet key spec id: {self.id}"
 
 
 class TabletsDimensions(models.Model):
@@ -178,14 +178,14 @@ class TabletsDimensions(models.Model):
     tablet_size = models.DecimalField(max_digits=5, decimal_places=1, blank=True, null=True)
 
     def __str__(self):
-        return f"Tablets dimensions id: {self.id}"
+        return f"Tablet dimensions id: {self.id}"
 
 
 class TabletsBattery(models.Model):
     runtime = models.IntegerField(blank=True, null=True)
 
     def __str__(self):
-        return f"Tablets runtime id: {self.id}"
+        return f"Tablet runtime id: {self.id}"
 
 
 class TabletCamera(models.Model):
@@ -193,4 +193,77 @@ class TabletCamera(models.Model):
     back_camera = models.IntegerField(blank=True, null=True)
 
     def __str__(self):
-        return f"Tablets camera id: {self.id}"
+        return f"Tablet camera id: {self.id}"
+
+
+class PhoneOverview(TabletsOverview):
+    network = models.CharField(max_length=80, blank=True, null=True)
+    phone_agreement = models.CharField(max_length=80, blank=True, null=True)
+
+    def __str__(self):
+        return f"Phone overview id: {self.id}"
+
+
+class PhoneDisplay(models.Model):
+    screen_size = models.IntegerField(blank=True, null=True)
+    screen_resolution = models.CharField(max_length=80, blank=True, null=True)
+
+    def __str__(self):
+        return f"Phone display id: {self.id}"
+
+
+class PhoneCamera(models.Model):
+    front_camera = models.IntegerField(blank=True, null=True)
+    rear_camera = models.CharField(max_length=80, blank=True, null=True)
+
+    def __str__(self):
+        return f"Phone camera id: {self.id}"
+
+
+class PhoneDimensions(models.Model):
+    depth = models.DecimalField(max_digits=5, decimal_places=1, blank=True, null=True)
+    height = models.DecimalField(max_digits=5, decimal_places=1, blank=True, null=True)
+    width = models.DecimalField(max_digits=5, decimal_places=1, blank=True, null=True)
+
+    def __str__(self):
+        return f"Phone dimensions id: {self.id}"
+
+
+class PhoneStorage(models.Model):
+    internal_storage = models.IntegerField(blank=True, null=True)
+    memory_card_support = models.CharField(max_length=80, blank=True, null=True)
+
+    def __str__(self):
+        return f"Phone storage id: {self.id}"
+
+
+class PhoneConnectivity(models.Model):
+    network_speeds = models.CharField(max_length=5, blank=True, null=True)
+    bluetooth = models.BooleanField(default=False, blank=True, null=True)
+    wifi = models.BooleanField(default=False, blank=True, null=True)
+    nfc = models.BooleanField(default=False, blank=True, null=True)
+    gps = models.BooleanField(default=False, blank=True, null=True)
+
+    def __str__(self):
+        return f"Phone connectivity id: {self.id}"
+
+
+class PhonePower(models.Model):
+    charging_port = models.CharField(max_length=50, blank=True, null=True)
+    battery_capacity = models.IntegerField(blank=True, null=True)
+    talk_time = models.IntegerField(blank=True, null=True)
+
+    def __str__(self):
+        return f"Phone power id: {self.id}"
+
+
+class PhoneTechnicalSpecifications(models.Model):
+    operating_system = models.CharField(max_length=50, blank=True, null=True)
+    processor_type = models.CharField(max_length=50, blank=True, null=True)
+    processor_speed = models.DecimalField(max_digits=5, decimal_places=1, blank=True, null=True)
+    ram = models.IntegerField(blank=True, null=True)
+    sim_type = models.CharField(max_length=50, blank=True, null=True)
+    dual_sim = models.CharField(max_length=50, blank=True, null=True)
+
+    def __str__(self):
+        return f"Phone technical specifications id: {self.id}"
