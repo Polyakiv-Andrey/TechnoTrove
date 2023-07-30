@@ -51,6 +51,3 @@ class Rating(models.Model):
 
     def __str__(self):
         return f"Rating for {self.product.product_name}"
-
-
-

@@ -54,3 +54,22 @@ class Tablets(Product):
         blank=True,
         null=True
     )
+
+    class TabletsType:
+        ipads = "iPads"
+        surface = "Surface"
+        android = "Android"
+
+    TABLETS_TYPES = (
+        (TabletsType.ipads, "iPads"),
+        (TabletsType.surface, "Surface"),
+        (TabletsType.android, "Android"),
+    )
+    tablets_type = models.CharField(
+        max_length=20,
+        choices=TABLETS_TYPES,
+        default=TabletsType.android,
+        blank=True,
+        null=True
+    )
+

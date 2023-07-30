@@ -14,3 +14,18 @@ class MonitorRetrivAPIView(generics.RetrieveAPIView):
     serializer_class = MonitorRetrivSerializer
     lookup_field = "pk"
 
+
+class MonitorGamingAPIView(generics.ListAPIView):
+    queryset = Monitor.objects.filter(monitor_type=Monitor.MonitorType.gaming)
+    serializer_class = MonitorListSerializer
+
+
+class Monitor4KAPIView(generics.ListAPIView):
+    queryset = Monitor.objects.filter(monitor_type=Monitor.MonitorType.fore_k)
+    serializer_class = MonitorListSerializer
+
+
+class MonitorUltraWideAPIView(generics.ListAPIView):
+    queryset = Monitor.objects.filter(monitor_type=Monitor.MonitorType.ultra_wide)
+    serializer_class = MonitorListSerializer
+

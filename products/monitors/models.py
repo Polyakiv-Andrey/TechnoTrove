@@ -55,3 +55,20 @@ class Monitor(Product):
         null=True
     )
 
+    class MonitorType:
+        gaming = "Gaming"
+        fore_k = "4K"
+        ultra_wide = "Ultra_wide"
+
+    MONITOR_TYPES = (
+        (MonitorType.gaming, "Gaming"),
+        (MonitorType.fore_k, "4K"),
+        (MonitorType.ultra_wide, "Ultra_wide")
+    )
+    monitor_type = models.CharField(
+        max_length=20,
+        choices=MONITOR_TYPES,
+        default=MonitorType.fore_k,
+        blank=True,
+        null=True
+    )

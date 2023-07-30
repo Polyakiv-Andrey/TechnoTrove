@@ -49,3 +49,21 @@ class Computer(Product):
         blank=True,
         null=True
     )
+
+    class ComputerType:
+        gaming = "Gaming"
+        home = "Home"
+        all_in_one = "All_in_one"
+
+    COMPUTER_TYPES = (
+        (ComputerType.gaming, "Gaming"),
+        (ComputerType.home, "Home"),
+        (ComputerType.all_in_one, "All_in_one")
+    )
+    computer_type = models.CharField(
+        max_length=20,
+        choices=COMPUTER_TYPES,
+        default=ComputerType.home,
+        blank=True,
+        null=True
+    )
