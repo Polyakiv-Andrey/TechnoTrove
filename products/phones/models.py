@@ -70,3 +70,23 @@ class Phone(Product):
         blank=True,
         null=True
     )
+
+    class PhoneType:
+        iphone = "iPhone"
+        samsung = "Samsung"
+        google = "Google"
+        one_plus = "OnePlus"
+
+    PHONE_TYPES = (
+        (PhoneType.iphone, "iPhone"),
+        (PhoneType.samsung, "Samsung"),
+        (PhoneType.google, "Google"),
+        (PhoneType.one_plus, "OnePlus"),
+    )
+    phone_type = models.CharField(
+        max_length=20,
+        choices=PHONE_TYPES,
+        default=PhoneType.samsung,
+        blank=True,
+        null=True
+    )

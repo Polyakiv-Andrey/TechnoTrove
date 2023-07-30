@@ -39,3 +39,21 @@ class Laptop(Product):
     )
     chassis = models.OneToOneField(LaptopChassis, on_delete=models.CASCADE, related_name="chassis")
     operating_system = models.CharField(max_length=50, blank=True, null=True)
+
+    class LaptopType:
+        gaming = "Gaming"
+        macbook = "MacBooks"
+        chromebooks = "Chromebooks"
+
+    LAPTOP_TYPES = (
+        (LaptopType.gaming, "Gaming"),
+        (LaptopType.macbook, "MacBooks"),
+        (LaptopType.chromebooks, "Chromebooks")
+    )
+    laptop_type = models.CharField(
+        max_length=20,
+        choices=LAPTOP_TYPES,
+        default=LaptopType.chromebooks,
+        blank=True,
+        null=True
+    )
